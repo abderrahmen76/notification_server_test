@@ -38,9 +38,9 @@ admin.initializeApp({
 
 // Initialize Supabase Client
 const supabase = createClient(
-  process.env.SUPABASE_URL || "https://aaeglgmzusasbxatjkjl.supabase.co",
+  process.env.SUPABASE_URL || "https://uxsimhenmvyessotnnmx.supabase.co",
   process.env.SUPABASE_SERVICE_ROLE_KEY ||
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFhZWdsZ216dXNhc2J4YXRqa2psIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3MjE0MTM0MCwiZXhwIjoyMDg3NzE3MzQwfQ.P-F1jvG_XrXZ9oyXciOV3YW1dn8xG4Z6mSLr2U5Oy6c",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV4c2ltaGVubXZ5ZXNzb3Rubm14Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3NTg2MDIxOSwiZXhwIjoyMDkxNDM2MjE5fQ.LMJpJrqxPhOEmLfNPffVtfe8i5G0oSd4USlV7Iz_V4Q",
 );
 
 // Deduplication cache: Store recent mission notifications to prevent duplicates
