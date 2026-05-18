@@ -313,14 +313,15 @@ app.post("/send-notification-batch", async (req, res) => {
     const failedResponses = Array.isArray(response.responses)
       ? response.responses.filter((entry) => entry && entry.error)
       : [];
+    const failures = failedResponses.map((entry) => ({
+      code: entry.error?.code || null,
+      message: entry.error?.message || String(entry.error),
+    }));
 
     if (failedResponses.length > 0) {
       console.warn("[BATCH] Some notification sends failed", {
         failureCount: failedResponses.length,
-        failures: failedResponses.map((entry) => ({
-          code: entry.error?.code || null,
-          message: entry.error?.message || String(entry.error),
-        })),
+        failures,
       });
     }
 
@@ -335,6 +336,7 @@ app.post("/send-notification-batch", async (req, res) => {
       delivered: response.successCount || 0,
       skipped: Math.max(0, targets.length - messages.length),
       failed: response.failureCount || 0,
+      failures,
     });
   } catch (error) {
     console.error("[BATCH] Error sending notification batch", error);
