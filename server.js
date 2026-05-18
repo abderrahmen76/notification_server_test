@@ -229,7 +229,7 @@ function buildBatchMessages({ title, body, data, targets }) {
           title,
           body,
           color: "#2962FF",
-          channelId: "ambulance_channel_all",
+          channelId: "ambulance_channel_v4",
           notificationPriority: "PRIORITY_HIGH",
           vibrateTimingsMillis: [500, 300, 500],
           lightSettings: {
@@ -577,9 +577,9 @@ app.post("/send-notification-all", async (req, res) => {
             body: body,
             // Ambulance blue color (#2962FF) - applied to the small icon
             color: "#2962FF",
-            // NO sound parameter - uses channel default (mission_alert.mp3)
+            // NO sound parameter - uses channel default (ambulance_alert.mp3)
             // Channel ID must match Android settings in Flutter app
-            channelId: "ambulance_channel_all",
+            channelId: "ambulance_channel_v4",
             // Notification priority
             notificationPriority: "PRIORITY_HIGH",
             // Vibration pattern (ms on, off, on)
@@ -830,8 +830,7 @@ async function processNotification(notification) {
           title: title,
           body: body,
           color: "#2962FF",
-          sound: "default",
-          channelId: "ambulance_channel",
+          channelId: "ambulance_channel_v4",
           notificationPriority: "PRIORITY_HIGH",
           vibrateTimingsMillis: [500, 300, 500],
           lightSettings: {
